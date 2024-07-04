@@ -1,1 +1,1 @@
-alpine:3.10
+kubeflowkatib/pytorch-mnist:v1beta1-45c5727
