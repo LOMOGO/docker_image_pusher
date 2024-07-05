@@ -1,1 +1,1 @@
-kubeflowkatib/pytorch-mnist:v1beta1-45c5727
+4pdosc/ai-benchmark:2.4.1-gpu
