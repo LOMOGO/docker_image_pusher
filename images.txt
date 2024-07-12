@@ -1,1 +1,1 @@
-4pdosc/ai-benchmark:2.4.1-gpu
+kubeflow/training-operator:v1-855e096
