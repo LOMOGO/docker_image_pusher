@@ -1,1 +1,1 @@
-kubeflow/training-operator:v1-855e096
+nvcr.io/nvidia/tritonserver:24.06-py3
