@@ -1,1 +1,1 @@
-mpioperator/mpi-operator:0.5.0
+kubeflow/mpi-horovod-mnist
