@@ -1,1 +1,1 @@
-golang:latest
+ingress-nginx/controller:v1.10.0
