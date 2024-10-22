@@ -1,1 +1,1 @@
-mpioperator/kubectl-delivery:latest
+ghcr.io/huggingface/text-embeddings-inference:1.5
