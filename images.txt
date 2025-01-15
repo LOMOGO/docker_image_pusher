@@ -1,2 +1,1 @@
-kserve/kserve-localmodel-controller:v0.14.1
-kserve/kserve-controller:v0.14.1
+quay.io/brancz/kube-rbac-proxy:v0.18.0
