@@ -1,1 +1,2 @@
-juicedata/mount:ce-v1.2.1
+kserve/kserve-localmodel-controller:v0.14.1
+kserve/kserve-controller:v0.14.1
