@@ -1,1 +1,3 @@
-kserve/huggingfaceserver:v0.13.0
+quay.io/jetstack/cert-manager-cainjector:v1.16.2
+quay.io/jetstack/cert-manager-controller:v1.16.2
+quay.io/jetstack/cert-manager-webhook:v1.16.2
