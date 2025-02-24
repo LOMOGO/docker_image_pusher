@@ -1,2 +1,1 @@
-calico/node:v3.20.6
-calico/pod2daemon-flexvol:v3.20.6
+alluxio/alluxio-dev:2.9.0
