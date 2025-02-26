@@ -1,1 +1,1 @@
-alpine:3.18
+juicedata/mount:ce-v1.2.0
