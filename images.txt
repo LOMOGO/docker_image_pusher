@@ -1,1 +1,1 @@
-nginx:alpine
+vllm/vllm-openai:v0.8.2
