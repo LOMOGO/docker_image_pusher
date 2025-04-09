@@ -1,1 +1,1 @@
-nginx:latest
+postgres:14-alpine
