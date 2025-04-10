@@ -1,1 +1,2 @@
-postgres:14-alpine
+mysql:8.0
+minio/minio
