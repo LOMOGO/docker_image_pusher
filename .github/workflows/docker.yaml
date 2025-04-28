@@ -37,7 +37,7 @@ jobs:
         while IFS= read -r image || [ -n "$image" ]; do
             # Remove leading and trailing whitespace from the image name
             # Skip if the image is blank
-            image=$(echo "$image" | awk '{$1=$1};1')
+            image=$(echo "$image" | xargs)
             if [[ -z "$image" || "$image" == \#* ]]; then
                 continue
             fi
