@@ -1,3 +1,1 @@
-falcosecurity/falco
-falcosecurity/falco-driver-loader
-falcosecurity/falcoctl:0.11.0
+falcosecurity/falco-driver-loader:0.40.0
