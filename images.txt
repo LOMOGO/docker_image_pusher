@@ -1,1 +1,1 @@
-falcosecurity/falco:0.40.0-debian
+python:3.10
