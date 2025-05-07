@@ -1,1 +1,1 @@
-debian:12
+multiarch/qemu-user-static:latest
