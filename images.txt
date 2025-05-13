@@ -1,1 +1,1 @@
-multiarch/qemu-user-static:latest
+ghcr.io/huggingface/text-embeddings-inference:89-1.7
