@@ -1,6 +1,1 @@
-langgenius/dify-api:1.1.3
-langgenius/dify-sandbox:0.2.11
-redis:6-alpine
-ubuntu/squid:latest
-langgenius/dify-plugin-daemon:0.0.6-local
-
+ascendai/cann:8.0.0-910b-ubuntu22.04-py3.10
