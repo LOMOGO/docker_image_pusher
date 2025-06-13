@@ -1,19 +1,21 @@
-name: Copy Alpine Image
+name: Docker
 
 on:
   workflow_dispatch:
   push:
     branches: [ main ]
 
+
 env:
-  ALIYUN_REGISTRY: "registry.cn-hangzhou.aliyuncs.com"
-  ALIYUN_NAME_SPACE: "qkd-system"
+  ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
+  ALIYUN_NAME_SPACE: "${{ secrets.ALIYUN_NAME_SPACE }}"
   ALIYUN_REGISTRY_USER: "${{ secrets.ALIYUN_REGISTRY_USER }}"
   ALIYUN_REGISTRY_PASSWORD: "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}"
 
 jobs:
-  copy-alpine:
-    name: Copy Alpine Image
+
+  build:
+    name: Copy
     runs-on: ubuntu-latest
     container:
       image: quay.io/containers/skopeo:latest
@@ -22,24 +24,28 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    - name: Copy Alpine 3.10 to Aliyun
+    - name: Copy image to Aliyun
       run: |
         set -e
-        echo "开始拉取并推送 alpine:3.10 镜像"
-        
-        source_image="alpine:3.10"
-        target_image="registry.cn-hangzhou.aliyuncs.com/qkd-system/alpine:3.10"
-        
-        echo "源镜像: $source_image"
-        echo "目标镜像: $target_image"
-        
-        # 使用skopeo复制镜像
-        skopeo copy \
-          --multi-arch all \
-          --src-tls-verify=false \
-          --dest-creds="jmi1992@sina.com:htG_Yt8#ktHD!pZ" \
-          "docker://$source_image" \
-          "docker://$target_image"
-        
-        echo "镜像复制完成！"
-        echo "目标地址: $target_image"
+        echo "Current working directory: $(pwd)"
+        echo "Listing files in current directory:"
+        ls -al
+        cat images.txt
+        new_repo="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE"
+
+        # Read image names from images.txt
+        while IFS= read -r image || [ -n "$image" ]; do
+            # Remove leading and trailing whitespace from the image name
+            # Skip if the image is blank
+            image=$(echo "$image" | awk '{$1=$1};1')
+            if [[ -z "$image" || "$image" == \#* ]]; then
+                continue
+            fi
+            
+            image_name_tag=$(basename $image)
+            # Replace / and : with _
+            new_image="${new_repo}/${image_name_tag}"
+            echo "cope $image"
+            skopeo copy --multi-arch all --src-tls-verify=false --dest-creds="$ALIYUN_REGISTRY_USER:$ALIYUN_REGISTRY_PASSWORD" "docker://$image" "docker://$new_image"
+        done < images.txt
+        echo "copy images done."
