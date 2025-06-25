@@ -1,1 +1,2 @@
-python:3.10
+docker.io/falcosecurity/falco:0.41.2
+docker.io/falcosecurity/falco-driver-loader:0.41.2
