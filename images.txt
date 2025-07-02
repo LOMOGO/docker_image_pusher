@@ -1,1 +1,1 @@
-golang:1.21-bullseye
+projecthami/hami:v2.3.9
