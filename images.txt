@@ -1,1 +1,1 @@
-python:3.12-bookworm
+golang:1.23-bullseye
