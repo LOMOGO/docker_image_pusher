@@ -1,1 +1,1 @@
-golang:1.23-bullseye
+ubuntu:20.04
