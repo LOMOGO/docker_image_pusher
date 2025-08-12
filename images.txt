@@ -1,1 +1,2 @@
-registry.k8s.io/node-problem-detector/node-problem-detector:v0.8.19
+lmcache/vllm-openai:2025-05-17-v1
+lmcache/lmstack-router:pd-05-26
