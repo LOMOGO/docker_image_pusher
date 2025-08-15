@@ -1,2 +1,2 @@
-lmcache/vllm-openai:2025-05-27-v1
-lmcache/lmstack-router:pd
+golang:1.14.10
+ubuntu:18.04
