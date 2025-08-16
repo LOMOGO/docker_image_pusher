@@ -1,2 +1,1 @@
-golang:1.14.10
-ubuntu:18.04
+openeuler/openeuler:22.03-lts
