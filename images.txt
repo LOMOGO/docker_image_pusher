@@ -1,1 +1,1 @@
-openjdk:11-jdk
+nvidia/cuda:11.8-devel-ubuntu20.04
