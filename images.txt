@@ -1,1 +1,1 @@
-multiarch/qemu-user-static:latest
+golang:1.21
