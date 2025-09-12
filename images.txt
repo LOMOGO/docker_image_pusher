@@ -1,1 +1,1 @@
-docker.io/bitnami/kubectl:1.33.4-debian-12-r0
+tonistiigi/binfmt:latest
