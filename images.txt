@@ -1,1 +1,1 @@
-tonistiigi/binfmt:latest
+multiarch/qemu-user-static:latest
