@@ -1,1 +1,1 @@
-kindest/node:v1.27.10
+lmsysorg/sglang:v0.4.6-cu118
