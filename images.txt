@@ -1,1 +1,1 @@
-quay.io/ascend/vllm-ascend:v0.9.1
+quay.io/ascend/vllm-ascend:v0.10.0rc1-310p
