@@ -1,1 +1,1 @@
-quay.io/ascend/vllm-ascend:v0.10.0rc1-310p
+bfren/nginx-webdav:7.1.1
