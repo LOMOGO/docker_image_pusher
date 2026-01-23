@@ -1,3 +1,0 @@
-vllm/vllm-openai:v0.8.5
-registry.cn-hangzhou.aliyuncs.com/lomogo-lib/yolov5-inference:v1.1.0-vscode-ssh
-registry.cn-hangzhou.aliyuncs.com/lomogo-lib/yolov5-train:bddev-v1.0.1-ssh-vscode-zh.1
