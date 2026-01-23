@@ -5,15 +5,16 @@ on:
   push:
     branches: [ main ]
 
-
 env:
   ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
   ALIYUN_NAME_SPACE: "${{ secrets.ALIYUN_NAME_SPACE }}"
   ALIYUN_REGISTRY_USER: "${{ secrets.ALIYUN_REGISTRY_USER }}"
   ALIYUN_REGISTRY_PASSWORD: "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}"
+  QKD_NAME_SPACE: "${{ secrets.QKD_NAME_SPACE }}"
+  QKD_REGISTRY_USER: "${{ secrets.QKD_REGISTRY_USER }}"
+  QKD_REGISTRY_PASSWORD: "${{ secrets.QKD_REGISTRY_PASSWORD }}"
 
 jobs:
-
   build:
     name: Copy
     runs-on: ubuntu-latest
@@ -24,29 +25,62 @@ jobs:
     - name: Checkout Code
       uses: actions/checkout@v4
 
-    - name: Copy image to Aliyun
+    - name: Copy images from images.txt to Aliyun
       run: |
         set -e
-        echo "Current working directory: $(pwd)"
-        echo "Listing files in current directory:"
-        ls -al
-        cat images.txt
-        new_repo="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE"
-
-        # Read image names from images.txt
-        while IFS= read -r image || [ -n "$image" ]; do
-            # Remove leading and trailing whitespace from the image name
-            # Skip if the image is blank
-            image=$(echo "$image" | xargs)
-            if [[ -z "$image" || "$image" == \#* ]]; then
-                continue
-            fi
-            
-            image_name_tag=$(basename $image)
-            # Replace / and : with _
-            new_image="${new_repo}/${image_name_tag}"
-            echo "cope $image"
-            skopeo copy --multi-arch all --src-tls-verify=false --dest-creds="$ALIYUN_REGISTRY_USER:$ALIYUN_REGISTRY_PASSWORD" "docker://$image" "docker://$new_image"
-        done < images.txt
-        echo "copy images done."
+        echo "=== Processing images.txt ==="
         
+        if [ ! -f images.txt ]; then
+          echo "images.txt not found, skipping..."
+        else
+          echo "Current working directory: $(pwd)"
+          echo "Content of images.txt:"
+          cat images.txt
+          new_repo="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE"
+
+          # Read image names from images.txt
+          while IFS= read -r image || [ -n "$image" ]; do
+              # Remove leading and trailing whitespace from the image name
+              # Skip if the image is blank or starts with #
+              image=$(echo "$image" | xargs)
+              if [[ -z "$image" || "$image" == \#* ]]; then
+                  continue
+              fi
+              
+              image_name_tag=$(basename $image)
+              new_image="${new_repo}/${image_name_tag}"
+              echo "Copying $image to $new_image"
+              skopeo copy --multi-arch all --src-tls-verify=false --dest-creds="$ALIYUN_REGISTRY_USER:$ALIYUN_REGISTRY_PASSWORD" "docker://$image" "docker://$new_image"
+          done < images.txt
+          echo "Copy images from images.txt done."
+        fi
+
+    - name: Copy images from qkd-images.txt to QKD registry
+      run: |
+        set -e
+        echo "=== Processing qkd-images.txt ==="
+        
+        if [ ! -f qkd-images.txt ]; then
+          echo "qkd-images.txt not found, skipping..."
+        else
+          echo "Current working directory: $(pwd)"
+          echo "Content of qkd-images.txt:"
+          cat qkd-images.txt
+          new_repo="$ALIYUN_REGISTRY/$QKD_NAME_SPACE"
+
+          # Read image names from qkd-images.txt
+          while IFS= read -r image || [ -n "$image" ]; do
+              # Remove leading and trailing whitespace from the image name
+              # Skip if the image is blank or starts with #
+              image=$(echo "$image" | xargs)
+              if [[ -z "$image" || "$image" == \#* ]]; then
+                  continue
+              fi
+              
+              image_name_tag=$(basename $image)
+              new_image="${new_repo}/${image_name_tag}"
+              echo "Copying $image to $new_image"
+              skopeo copy --multi-arch all --src-tls-verify=false --dest-creds="$QKD_REGISTRY_USER:$QKD_REGISTRY_PASSWORD" "docker://$image" "docker://$new_image"
+          done < qkd-images.txt
+          echo "Copy images from qkd-images.txt done."
+        fi
