@@ -1,1 +1,2 @@
-mysql:8.0
+chromedp/headless-shell:146.0.7680.31
+ghcr.io/openclaw/openclaw:2026.3.2
