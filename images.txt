@@ -1,2 +1,1 @@
-chromedp/headless-shell:146.0.7680.31
-ghcr.io/openclaw/openclaw:2026.3.2
+quay.io/ascend/vllm-ascend:v0.17.0rc1-a3-openeuler
