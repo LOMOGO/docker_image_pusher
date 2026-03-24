@@ -1,1 +1,1 @@
-quay.io/ascend/vllm-ascend:v0.17.0rc1-a3-openeuler
+ghcr.io/openclaw/openclaw:2026.3.23
