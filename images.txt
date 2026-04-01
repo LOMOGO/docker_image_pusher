@@ -1,2 +1,1 @@
-eclipse-temurin:17-jre
-maven:3.9-eclipse-temurin-17
+jmalloc/echo-server:v0.3.7
