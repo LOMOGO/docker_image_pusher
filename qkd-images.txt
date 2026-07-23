@@ -1,1 +1,1 @@
-minio/minio:RELEASE.2023-07-18T17-49-40Z
+
