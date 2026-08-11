@@ -1,2 +1,1 @@
-ghcr.io/kubeflow/trainer/deepspeed-runtime:v2.2.1
-pytorch/pytorch:2.13.0-cuda13.0-cudnn9-runtime
+redis:7-alpine
