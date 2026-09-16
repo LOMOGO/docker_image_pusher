@@ -1,1 +1,3 @@
-redis:7-alpine
+docker.io/envoyproxy/gateway:v1.2.8
+docker.io/envoyproxy/envoy:distroless-v1.32.4
+docker.io/envoyproxy/ratelimit:0141a24f
