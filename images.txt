@@ -1,3 +1,6 @@
-docker.io/envoyproxy/gateway:v1.2.8
-docker.io/envoyproxy/envoy:distroless-v1.32.4
-docker.io/envoyproxy/ratelimit:0141a24f
+aibrix/controller-manager:v0.7.0
+aibrix/gateway-plugins:v0.7.0
+busybox:stable
+aibrix/runtime:v0.7.0
+aibrix/metadata-service:v0.7.0
+redis:7.4
