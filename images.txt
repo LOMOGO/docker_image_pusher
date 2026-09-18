@@ -1,1 +1,1 @@
-envoyproxy/envoy:v1.33.2
+docker.io/alexander5962/llamafactory-cu128:v1
