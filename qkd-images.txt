@@ -1,1 +1,1 @@
-docker.io/alexander5962/llamafactory-cu128:v1
+vllm/vllm-openai:v0.28.0-cu129-ubuntu2404
