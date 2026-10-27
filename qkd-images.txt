@@ -1,1 +1,1 @@
-docker.io/envoyproxy/gateway:v1.2.8
+aibrix/vllm-openai:v0.10.2-aibrix-v0.5.0-nixl-0.7.1-20251123
